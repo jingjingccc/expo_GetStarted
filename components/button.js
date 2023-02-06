@@ -1,5 +1,7 @@
 import { StyleSheet, View, Pressable, Text } from 'react-native';
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+
 
 export default function Button({ label, theme, onPress }) {
     if (theme === "primary") 
@@ -24,12 +26,13 @@ export default function Button({ label, theme, onPress }) {
   
     return (
       <View style={styles.buttonContainer}>
-          <Pressable style={styles.button} onPress={() => alert('You pressed a button without outsider.')}>
+          <Pressable style={styles.button} onPress={onPress}>
             <Text style={styles.buttonLabel}>{label}</Text>
           </Pressable>
         </View>
     );
-  }
+}
+
 
 const styles = StyleSheet.create({
   buttonContainer: {
