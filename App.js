@@ -1,8 +1,11 @@
+// dependencies
 import { StyleSheet, Text, View , Image} from "react-native";
 import { StatusBar } from "expo-status-bar";
 import * as ImagePicker from 'expo-image-picker';
 import { useState } from 'react';
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
+// component
 import ImageViewers from "./components/ImageViewer.js";
 import Button from "./components/button.js";
 import CircleButton from "./components/CircleButton.js";
@@ -49,7 +52,7 @@ export default function App(){
   };
 
   return (
-    <View style={styles.containers}>
+    <GestureHandlerRootView style={styles.containers}>
       <View style={styles.imagecontainers}>
         <ImageViewers 
           placeholderImageSource={PlaceholderImage} selectedImage={selectedImage} />
@@ -74,7 +77,7 @@ export default function App(){
         <EmojiList onSelect={setPickedEmoji} onCloseModal={onModalClose} />
       </EmojiPicker>
       <StatusBar style="auto" />
-    </View>
+    </GestureHandlerRootView >
     
   );  
 }
