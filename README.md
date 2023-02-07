@@ -35,7 +35,7 @@ In the Expo, most elements corresponds to the built-in [Core components](https:/
 **Solution** : upgrade the expo SDK to a supported version by the following command
 
 ```
-expo upgrade -h
+expo upgrade
 ```
 
 <!--- $${\color{red}**WARNING : DON'T follow the command installing the dependencies in the tutorial, it will make your SDK version downgrade to 1.0.0 which is no longer supported.**}$$ --->
