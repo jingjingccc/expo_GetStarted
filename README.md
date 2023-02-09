@@ -37,4 +37,8 @@ In the Expo, most elements corresponds to the built-in [Core components](https:/
 expo upgrade
 ```
 
-<!--- $${\color{red}**WARNING : DON'T follow the command installing the dependencies in the tutorial, it will make your SDK version downgrade to 1.0.0 which is no longer supported.**}$$ --->
+-----------------------------------------------------------------------------
+#### **[NOTE]**
+1. Find third-party libraries on [React Native Directory](https://reactnative.directory/).
+(Example : gesture-handler, reanimated, view-shot...)
+
