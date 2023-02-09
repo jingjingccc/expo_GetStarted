@@ -6,6 +6,7 @@ import { useState, useRef } from 'react';
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import * as MediaLibrary from "expo-media-library";
 import {captureRef} from 'react-native-view-shot';
+import * as SplashScreen from 'expo-splash-screen';
 
 // component
 import ImageViewers from "./components/ImageViewer.js";
@@ -17,6 +18,9 @@ import EmojiList from "./components/EmojiList.js";
 import EmojiSticker from "./components/EmojiSticker.js";
 
 const PlaceholderImage = require('./assets/background_image.jpg');
+
+SplashScreen.preventAutoHideAsync();
+setTimeout(SplashScreen.hideAsync, 5000); // delay hiding for 5 secs
 
 export default function App(){
   const [status, requestPermission] = MediaLibrary.usePermissions();
@@ -101,7 +105,7 @@ export default function App(){
       <EmojiPicker isVisiable={isModalVisible} onClose={onModalClose}>
         <EmojiList onSelect={setPickedEmoji} onCloseModal={onModalClose} />
       </EmojiPicker>
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
     </GestureHandlerRootView >
     
   );  
