@@ -31,6 +31,8 @@ In the Expo, most elements corresponds to the built-in [Core components](https:/
 -----------------------------------------------------------------------------
 #### **[some testing...]**
 
+● Routing and Navigation (two pages)
+
 ● usage of smartphone accelerometer
 
 -----------------------------------------------------------------------------
