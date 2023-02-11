@@ -1,4 +1,4 @@
-// dependencies
+// dependencies from tutorials
 import { StyleSheet, Text, View , Image} from "react-native";
 import { StatusBar } from "expo-status-bar";
 import * as ImagePicker from 'expo-image-picker';
@@ -7,6 +7,12 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import * as MediaLibrary from "expo-media-library";
 import {captureRef} from 'react-native-view-shot';
 import * as SplashScreen from 'expo-splash-screen';
+
+// dependencies from testing part
+
+import * as React from 'react';
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 // component
 import ImageViewers from "./components/ImageViewer.js";
@@ -22,7 +28,11 @@ const PlaceholderImage = require('./assets/background_image.jpg');
 SplashScreen.preventAutoHideAsync();
 setTimeout(SplashScreen.hideAsync, 5000); // delay hiding for 5 secs
 
-export default function App(){
+
+const Stack = createNativeStackNavigator();
+
+function HomeScreen({navigation})
+{
   const [status, requestPermission] = MediaLibrary.usePermissions();
   const [selectedImage, setSelectedImage] = useState(null);
   const [showAppOptions, setShowAppOptions] = useState(false);
@@ -80,6 +90,9 @@ export default function App(){
 
   return (
     <GestureHandlerRootView style={styles.containers}>
+      <View style={styles.acccontainer}>
+        <Button theme="primary" label="Accelerometer" onPress={() => navigation.navigate('Details')} />
+      </View>
       <View style={styles.imagecontainers}>
         <View ref={imageRef} collapsable={false}>
           <ImageViewers 
@@ -105,11 +118,36 @@ export default function App(){
       <EmojiPicker isVisiable={isModalVisible} onClose={onModalClose}>
         <EmojiList onSelect={setPickedEmoji} onCloseModal={onModalClose} />
       </EmojiPicker>
+      
       <StatusBar style="light" />
     </GestureHandlerRootView >
     
   );  
 }
+
+function DetailsScreen()
+{
+  return(
+    <View style = {{flex:1, alignItems:'center', justifyContent: 'center'}}>
+      <Text>Details screen</Text>
+      <StatusBar style="auto"/>
+    </View>
+  );
+}
+
+function App()
+{
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home" >
+        <Stack.Screen name="Home" component={HomeScreen} options={{headerShown:false}}/>
+        <Stack.Screen name="Details" component={DetailsScreen}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default App;
 
 const styles = StyleSheet.create({
   containers:{
@@ -140,5 +178,11 @@ const styles = StyleSheet.create({
   optionsRow:{
     alignItems: 'center',
     flexDirection: 'row'
+  },
+  acccontainer: {
+    top: 80,
+    flex: 1 / 10 ,
+    alignItems: 'center',
+    // justifyContent: "space-evenly",
   },
 });
