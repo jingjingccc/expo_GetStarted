@@ -35,6 +35,8 @@ In the Expo, most elements corresponds to the built-in [Core components](https:/
 
 ● usage of smartphone accelerometer
 
+● bluetooth
+
 -----------------------------------------------------------------------------
 :warning: **Warning** : Some of the command installing the dependencies in the tutorial will make your SDK version downgrade to 1.0.0 which is no longer supported. Then, the project will be unable to run.
 
